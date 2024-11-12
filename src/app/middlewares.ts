@@ -4,7 +4,7 @@ import express, { Application } from "express";
 import cors from "cors";
 import { corsOptions, profilePhotoDir } from "./config";
 
-// import { defaultErrorMiddleware, authMiddleware } from "../middleware/authMiddleware";
+import { defaultErrorMiddleware, authMiddleware } from "../middleware/authMiddleware";
 
 export const setupMiddlewares = (app: Application) => {
   app.use('/pfps', express.static(profilePhotoDir));
@@ -12,8 +12,8 @@ export const setupMiddlewares = (app: Application) => {
   app.use(express.json());
 
   // Auth 🔑
-  // app.use(authMiddleware);
+  app.use(authMiddleware);
 
   // Error 🚨
-  // app.use(defaultErrorMiddleware);
+  app.use(defaultErrorMiddleware);
 };
