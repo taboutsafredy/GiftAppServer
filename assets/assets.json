@@ -1,0 +1,25 @@
+[{
+    "name": "Delicious Cake",
+    "price": 10,
+    "asset": "USDT",
+    "totalInStock": 500,
+    "quantityPurchased": 0
+},{
+    "name": "Green Star",
+    "price": 5,
+    "asset": "TON",
+    "totalInStock": 3000,
+    "quantityPurchased": 0
+},{
+    "name": "Blue Star",
+    "price": 0.01,
+    "asset": "ETH",
+    "totalInStock": 5000,
+    "quantityPurchased": 0
+},{
+    "name": "Red Star",
+    "price": 7,
+    "asset": "USDT",
+    "totalInStock": 10000,
+    "quantityPurchased": 0
+}]
