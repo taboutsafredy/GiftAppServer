@@ -19,7 +19,7 @@ class NotificationService {
      */
     static async notifyPurchase(purchaserId: string, giftName: string) {
         const message = `✅ You have purchased the gift of <b>${giftName}</b>.`;
-        const button = [{ text: "Open Gifts", web_app: { url: "" } }]; // Button can link to gifts page
+        const button = [{ text: "Open Gifts", web_app: { url: "https://app.giftcontestbot.tech/gifts" } }]; // Button can link to gifts page
         await this.sendTelegramMessage(purchaserId, message, button);
     }
     
@@ -34,11 +34,11 @@ class NotificationService {
      */
     static async notifySend( senderId: string, receiverId: string, senderName: string, receiverName: string, giftName: string ) {
         const senderMessage = `👌 <b>${receiverName}</b> received your gift of <b>${giftName}</b>.`;
-        const senderButton = [{ text: "Open App", web_app: { url: "" } }];
+        const senderButton = [{ text: "Open App", web_app: { url: "https://app.giftcontestbot.tech" } }];
         await this.sendTelegramMessage(senderId, senderMessage, senderButton);
 
         const receiverMessage = `⚡️ <b>${senderName}</b> has given you the gift of <b>${giftName}</b>.`;
-        const receiverButton = [{ text: "View Gift", web_app: { url: "" } }];
+        const receiverButton = [{ text: "View Gift", web_app: { url: "https://app.giftcontestbot.tech/profile" } }];
         await this.sendTelegramMessage(receiverId, receiverMessage, receiverButton);
     }
 

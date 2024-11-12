@@ -108,7 +108,7 @@ export const purchase = async (_id: string, giftId: mongoose.Schema.Types.Object
         const createInvoiceAPIUrl = "https://pay.crypt.bot/api/createInvoice";
         const cryptoPayAPIToken = process.env.CRYPTOPAYTOKEN;
         const transactionSuccessId = uuidv4();
-        const transactionSuccessUrl = `https://t.me/GiftAppContestBot/gift?startapp=purchase_${transactionSuccessId}`;
+        const transactionSuccessUrl = `https://app.giftcontestbot.tech/gifts/success/purch__${transactionSuccessId}`;
 
         const dataToMakeInvoice = {
             amount: giftToPurchase.price,
@@ -212,8 +212,8 @@ export const receive = async (receiverId: string, purchaseReferenceId: string) =
         await NotificationService.notifySend(
             transaction.from,
             receiverId,
-            `${sender?.firstname} ${sender?.lastname}`,
-            `${receiver?.firstname} ${receiver?.lastname}`,
+            `${sender?.firstname} ${sender?.lastname ? sender?.lastname : ""}`,
+            `${receiver?.firstname} ${receiver?.lastname ? receiver?.lastname : ""}`,
             gift?.name!,
         );
 

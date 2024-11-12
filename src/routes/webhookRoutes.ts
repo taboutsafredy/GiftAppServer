@@ -7,3 +7,5 @@ import { asyncHandler } from '../utils/asyncHandler';
 const router = Router();
 
 router.post("/:token", asyncHandler(webhookController.handleWebhook));
+
+export default router;

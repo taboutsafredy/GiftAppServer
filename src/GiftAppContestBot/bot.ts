@@ -1,7 +1,6 @@
 // Path: GiftAppContestBot/bot.ts
 
 import dotenv from "dotenv";
-import { randomBytes } from "crypto";
 import { Bot, Context, InlineKeyboard } from "grammy";
 import Transaction from "../models/Transaction";
 import { IGift } from "../models/Gift";
@@ -10,7 +9,7 @@ dotenv.config();
 
 const bot = new Bot<Context>(process.env.TELEGRAMBOTTOKEN!);
 
-const openGiftAppInlineKeyboard = new InlineKeyboard().webApp("Open App", "https://sonner.emilkowal.ski/getting-started#render-a-toast");
+const openGiftAppInlineKeyboard = new InlineKeyboard().webApp("Open App", "https://app.giftcontestbot.tech");
 
 bot.command("start", async (ctx) => {
     try {
@@ -27,7 +26,7 @@ bot.command("start", async (ctx) => {
 // to anwser with a gift 🎁
 bot.on("inline_query", async (ctx) => {
     const getQuery = ctx.inlineQuery.query;
-    const receiveGiftInlineKeyboard = new InlineKeyboard().webApp("Receive Gift", `https://sonner.emilkowal.ski/${getQuery}`);
+    const receiveGiftInlineKeyboard = new InlineKeyboard().webApp("Receive Gift", `https://app.giftcontestbot.tech/gifts/success/rec__${getQuery}`);
 
     const transaction = await Transaction.findOne({
         _id: getQuery,
